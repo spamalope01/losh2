@@ -2,13 +2,14 @@ var express = require('express');
 var nodemailer = require('nodemailer');
 var app = express();
 var smtpTransport = nodemailer.createTransport({
-  service: "gmail",
   host: "smtp.gmail.com",
+  port: 587,
   auth: {
-    user: "spamalope01@gmail.com",
-    pass: "pap17031017"
+    user: "l2workquery@gmail.com",
+    // pass: "pap17031017"
+    pass: "stone905"
   }
-})
+});
 var port = process.env.PORT || 9000;
 
 app.use(express.static(__dirname + '/app'));
@@ -19,22 +20,20 @@ app.get('/', function(req, res) {
 });
 
 app.get('/send', function(req, res) {
-  console.log('in the send');
-  console.log('req', req);
   var mailOptions={
-    to : "spamalope01@gmail.com",
-    from: req.query.sender,
+    to : "l2workquery@gmail.com",
+    subject: "Inquiry about work.",
+    from: req.query.email,
     phone: req.query.phone,
     email: req.query.email,
-    text : req.query.text
-  }
-  console.log('mailOptions', mailOptions);
+    text : "You have received a project request. \n \n Contact Name: " + req.query.from + ". \n \n Contact email: " + req.query.email + ". \n \n Contact phone: " + req.query.phone + " \n \n Message: " + req.query.text
+  };
   smtpTransport.sendMail(mailOptions, function(error, response){
     if(error){
       console.log('there was a problem', error);
       res.end("error");
     }else{
-      console.log("Message sent: " + response.message);
+      console.log("Message sent: " + res.message);
       res.end("sent");
     }
   });

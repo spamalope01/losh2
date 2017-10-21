@@ -1,7 +1,7 @@
 (function(module){
   let mail = {};
 
-  mail.$sender = null;
+  mail.$$from = null;
   mail.$phone = null;
   mail.$email = null;
   mail.$message = null;
@@ -9,21 +9,25 @@
 
 
   mail.getForm = function(){
-    console.log('clicked the submit');
     $('.contactForm').off().on('click', '.sendMail', function(e){
       e.preventDefault();
-      mail.$sender = $('.contactForm input[name=sender]').val();
-      mail.$phone = $('.contactForm input[name=email]').val();
-      mail.$email = $('.contactForm input[name=phone]').val();
+      mail.$from = $('.contactForm input[name=sender]').val();
+      mail.$email = $('.contactForm input[name=email]').val();
+      mail.$phone = $('.contactForm input[name=phone]').val();
       mail.$message = $('.contactForm textarea[name=message]').val();
+      console.log('from', mail.$from);
+      console.log('phone', mail.$phone);
+      console.log('email', mail.$email);
+      console.log('message', mail.$message);
+      console.log('got the form');
       $.get("http://localhost:9000/send", {
-        from: mail.$sender,
+        from: mail.$from,
         phone: mail.$phone,
         email: mail.$email,
         text: mail.$message
       }, function(data){
+        console.log('in the get function');
         if(data == "sent"){
-          console.log();
           $('#sentMessage').empty().html(
             'Your email has been sent.  Thank you!  We will be in touch soon.'
           );
@@ -32,9 +36,25 @@
     });
   };
 
-  mail.sendForm = function(){
-    $()
-  }
+  // mail.sendForm = function(){
+  //   var mailOptions={
+  //     to : "spamalope01@gmail.com",
+  //     from: req.query.sender,
+  //     phone: req.query.phone,
+  //     email: req.query.email,
+  //     text : req.query.text
+  //   }
+  //   smtpTransport.sendMail(mailOptions, function(error, response){
+  //     console.log('mailOptions', mailOptions);
+  //     if(error){
+  //       console.log('there was a problem', error);
+  //       res.end("error");
+  //     }else{
+  //       console.log("Message sent: " + response.message);
+  //       res.end("sent");
+  //     }
+  //   });
+  // }
 
 
 
@@ -58,6 +78,7 @@
 
 $(document).ready(function() {
     mail.getForm();
+    // mail.sendForm();
 });
 
 
