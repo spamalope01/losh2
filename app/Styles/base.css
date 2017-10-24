@@ -1,13 +1,13 @@
 h1, h2, p {
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Raleway', Arial, Helvetica, sans-serif;
 }
 
 .landingUpper {
-  background: url('../Images/livingroom.jpg') no-repeat fixed;
+  background: url('../Images/EngineeringBackground.jpg') no-repeat fixed;
   background-size: 100%;
-  height: 50em;
-  /*align-items: center;*/
+  height: 32em;
   position: relative;
+  /*margin: 0 2rem;*/
 }
 
 header {
@@ -24,20 +24,37 @@ header {
 
 .socMedia {
   width: 27px;
+  margin: 0 0 0 8.91px;
 }
 
-.test {
-  margin: 0 0 0 8.91px;
+.upperText {
+  position: absolute;
+  top: 20%;
+  right: 13%;
+  color: white;
+  text-align: center;
+  padding: 2px 16px;
+  border-radius: 10px;
+  border: 1px solid white;
+  width: 75em;
+  background:rgba(0,0,0,0.5);
+}
+
+.upperText p {
+  font-size: 24px;
 }
 
 .compName {
   margin-top: 1%;
 }
 
+.middleLanding {
+  height: 34em;
+}
+
 .landingTiles {
   width: 100%;
-  position: absolute;
-  bottom: 1%;
+  padding-top: 3rem;
 }
 
 .tileOne {
@@ -61,8 +78,6 @@ header {
 
 .tileOne {
   border: 1px solid grey;
-  /*width: 24%;*/
-  /*height: 17.5em;*/
   width: 24.6%;
   height: 23em;
   margin-right: 3%;
@@ -83,8 +98,6 @@ header {
 
 .tileTwo {
   border: 1px solid grey;
-  /*width: 24%;
-  height: 17.5em;*/
   width: 25%;
   height: 23em;
   margin-left: 5%;
@@ -123,9 +136,7 @@ header {
   bottom: 0;
   left: 0;
   right: 0;
-  /*background-color: red;*/
   overflow: hidden;
-  /*width: 100%;*/
   height: 0;
   transition: .5s ease;
   background:rgba(255,255,255,0.75);
@@ -138,22 +149,23 @@ header {
   height: 100%;
 }
 
-.middleLanding{
-  margin-top: 4%;
-  margin-bottom: 4%;
-  padding-left: 20%;
-  padding-right: 20%;
-  /*border-bottom: 1px solid black;*/
-}
-
 .lowerLanding {
+  z-index: 1;
   height: 30%;
   overflow: hidden;
+  border-top: 1px solid black;
+  margin: 0 2rem;
+  background: #666563;
+  color: #fff;
 }
 
 .quickContact {
-  margin-top: 7%;
+  margin-top: 3em;
   margin-left: 3%;
+}
+
+.quickContact h2 {
+  font-size: 35px;
 }
 
 label, textarea {
@@ -178,11 +190,42 @@ label, textarea {
   padding-top: 5%;
 }
 
-.sideContact {
+label {
+  margin: 1rem 0 .2rem 0;
+}
+
+.inputField {
+  display: block;
+  width: 100%;
+  padding: .5rem .75rem;
+  font-size: 1rem;
+  line-height: 1.25;
+  background-clip: padding-box;
+  border: 1px solid rgba(0,0,0,.15);
+  border-radius: .25rem;
 }
 
 .address, .phone, .email {
   margin-left: 5%;
+}
+
+.btn {
+  border-radius: .25rem;
+  color: black;
+  /*height: 7.5%;*/
+  margin-top: 2em;
+  margin-bottom: 3%;
+  width: 15rem;
+  /*background-color: #63D1F4;
+  border-color: #63D1F4;*/
+  font-weight: 400;
+  line-height: 1.25;
+  text-align: center;
+  vertical-align: middle;
+  padding: .5em 1rem;
+  font-size: 1rem;
+  transition: all .2s ease-in-out;
+
 }
 
 
