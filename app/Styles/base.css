@@ -12,6 +12,15 @@ h1, h2, p {
 
 header {
   position: relative;
+  text-align: center;
+}
+
+.logo {
+  display: inline;
+}
+
+.logo img {
+  width: 6rem;
 }
 
 .socials {
@@ -19,7 +28,7 @@ header {
   margin-top: auto;
   position: absolute;
   right: 15%;
-  top: -6px
+  top: 10px;
 }
 
 .socMedia {
@@ -216,8 +225,8 @@ label {
   margin-top: 2em;
   margin-bottom: 3%;
   width: 15rem;
-  /*background-color: #63D1F4;
-  border-color: #63D1F4;*/
+  background-color: #63D1F4;
+  border-color: #63D1F4;
   font-weight: 400;
   line-height: 1.25;
   text-align: center;
