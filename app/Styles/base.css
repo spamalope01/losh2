@@ -204,6 +204,7 @@ label {
 }
 
 .inputField {
+  color: #fff;
   display: block;
   width: 100%;
   padding: .5rem .75rem;
